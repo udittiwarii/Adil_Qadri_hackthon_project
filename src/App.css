@@ -1,0 +1,101 @@
+* {
+  color: green;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+}
+
+.animation-div {
+  margin: 10px;
+  background: red;
+  left: 0;
+  top: 0;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  animation-name: anime;
+  animation-delay: 1s;
+  animation-duration: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes anime {
+  0% {
+    left: 0%;
+    top: 1%;
+    transform: rotate(0deg);
+    background: red;
+  }
+  25% {
+    left: 90%;
+    top: 1%;
+    border-radius: 10px;
+    transform: rotate(90deg);
+    background: blue;
+  }
+  50% {
+    left: 90%;
+    top: 90%;
+    border-radius: 20px;
+    transform: rotate(180deg);
+    background: green;
+  }
+  75% {
+    left: 0%;
+    top: 90%;
+    border-radius: 30px;
+    transform: rotate(270deg);
+    background: gold;
+  }
+  100% {
+    left: 0%;
+    top: 0%;
+    border-radius: 40px;
+    transform: rotate(360deg);
+    background: orange;
+  }
+}
+
+beforeafter {
+  font-size: 40px;
+  color: rebeccapurple;
+  text-align: center;
+}
+
+.beforeafter::before {
+  content: " This";
+  color: rgb(6, 42, 54);
+  display: inline-block; /* Needed for transform! */
+  animation: spin 2s linear infinite;
+}
+
+.beforeafter::after {
+  content: "  learn";
+  color: rgb(13, 50, 38);
+  display: inline-block; /* Needed for transform! */
+  animation: updown 2s ease-in-out infinite alternate;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+@keyframes updown {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
