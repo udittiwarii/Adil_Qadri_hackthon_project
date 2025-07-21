@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div className="bg-black text-white min-h-screen font-[Poppins]">
       <Navbar />
-      <div className="pt-37"><Mainrouting /></div>
+      <div className=""><Mainrouting /></div>
 
     </div>
   );

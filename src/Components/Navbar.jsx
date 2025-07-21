@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full bg-transparent text-white backdrop-blur-md shadow-sm font-[Poppins] fixed top-0 left-0 z-50 transition-transform duration-500 ${
+      className={`w-full bg-transparent text-gray-200 backdrop-blur-md shadow-sm font-[Poppins] fixed top-0 left-0 z-50 transition-transform duration-500 ${
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -52,7 +52,7 @@ const Navbar = () => {
               to={to}
               className={({ isActive }) =>
                 `transition duration-300 hover:text-[#FFD700] ${
-                  isActive ? "text-[#FFD700]" : "text-white"
+                  isActive ? "text-[#FFD700]" : "text-gray-200"
                 }`
               }
             >
@@ -63,7 +63,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle Button */}
         <div
-          className="md:hidden text-white text-3xl cursor-pointer"
+          className="md:hidden text-gray-200 text-3xl cursor-pointer"
           onClick={toggleMobileMenu}
         >
           ☰
@@ -72,7 +72,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-black text-white px-6 py-4 space-y-4">
+        <div className="md:hidden bg-black text-gray-200 px-6 py-4 space-y-4">
           {navLinks.map(({ to, label }) => (
             <NavLink
               key={to}
@@ -80,7 +80,7 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)} // close menu after click
               className={({ isActive }) =>
                 `block transition duration-300 hover:text-[#FFD700] ${
-                  isActive ? "text-[#FFD700]" : "text-white"
+                  isActive ? "text-[#FFD700]" : "text-gray-200"
                 }`
               }
             >
