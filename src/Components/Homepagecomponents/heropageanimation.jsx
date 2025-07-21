@@ -3,8 +3,10 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
+import Heroswiper from "./heroswiper";
 
-const Fluxbottleanimation = () => {
+
+const heropageanimation = () => {
     const scrollRef = useRef(null);
 
     useEffect(() => {
@@ -117,7 +119,7 @@ const Fluxbottleanimation = () => {
             {/* SECTION 1 */}
             <section
                 data-scroll-section
-                className="relative min-h-screen bg-black text-white overflow-hidden"
+                className="relative min-h-screen bg-black text-white "
             >
                 {/* Blurred Background Bottle */}
                 <div
@@ -131,23 +133,24 @@ const Fluxbottleanimation = () => {
                     />
                 </div>
 
-                {/* Foreground Bottle */}
+                
                 <div
                     data-scroll
                     data-scroll-speed="-2"
-                    className="absolute z-10 top-[-10%] right-5 sm:right-10 md:right-16 lg:right-20 pointer-events-none"
+                    className="absolute z-10 mb-0 pb-0 right-5 sm:right-10 md:right-16 lg:right-20 pointer-events-none"
                 >
                     <img
                         src="src/assets/Flux_Dev_a_lavish_highly_detailed_3D_render_of_a_luxury_perfum_3-removebg-preview.png"
                         alt="Perfume Bottle"
-                        className="perfume-bottle h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] opacity-60 object-contain"
+                        className="perfume-bottle mb-0 pb-0 h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] opacity-60 object-contain"
                     />
                 </div>
 
-                {/* Aroma Particles */}
+                
                 <div
                     data-scroll
-                    data-scroll-speed="2"
+                    data-scroll-speed="-2"
+                    data-scroll-direaction="horizontal"
                     className="absolute inset-0 z-10 pointer-events-none overflow-hidden"
                 >
                     {Array.from({ length: 15 }).map((_, i) => (
@@ -163,7 +166,8 @@ const Fluxbottleanimation = () => {
                 </div>
 
                 {/* Text Content */}
-                <div className="relative z-20 flex flex-col items-center justify-center min-h-screen text-gray-200 text-center px-4">
+                <div
+                    data-scroll data-scroll-speed="-1" className="relative mb-0 pb-0 z-20 flex flex-col items-center justify-center min-h-screen text-gray-200 text-center px-4">
                     <h1
                         data-scroll
                         data-scroll-speed="-0.3"
@@ -180,26 +184,20 @@ const Fluxbottleanimation = () => {
                     </p>
                     <button
                         data-scroll
-                        data-scroll-speed="-1"
+                        data-scroll-speed="-2"
                         className="mt-6 font-[Inter] px-5 py-2 sm:px-6 sm:py-3 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition text-sm sm:text-base"
                     >
                         Shop Now
                     </button>
+
                 </div>
+                <Heroswiper/>
             </section>
 
-            {/* SECTION 2 */}
-            <section
-                data-scroll-section
-                className="min-h-screen bg-black text-white flex items-center justify-center"
-            >
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
-                    Scroll Down
-                </h2>
-            </section>
+
         </div>
 
     );
 };
 
-export default Fluxbottleanimation;
+export default heropageanimation;

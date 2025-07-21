@@ -1,9 +1,11 @@
-import Fluxbottleanimation from "../Components/Fluxbottleanimation"
+import Fluxbottleanimation from "../Components/Homepagecomponents/heropageanimation"
+
 
 const Home = () => {
   return (
     <div >
       <Fluxbottleanimation/>
+      
     </div>
   )
 }
