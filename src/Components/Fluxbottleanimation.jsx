@@ -83,7 +83,7 @@ const Fluxbottleanimation = () => {
             {/* SECTION 1 */}
             <section className="relative min-h-screen bg-black text-white overflow-hidden">
 
-                {/* 🌫 Blurred Background Bottle */}
+                
                 <div className="absolute inset-0 z-0 flex items-center justify-center">
                     <img
                         src="src/assets/Flux_Dev_a_lavish_highly_detailed_3D_render_of_a_luxury_perfum_3-removebg-preview.png"
@@ -93,11 +93,11 @@ const Fluxbottleanimation = () => {
                 </div>
 
                 {/* 🧴 Foreground Bottle (Top Right) */}
-                <div className="absolute z-10 top-10 right-10 pointer-events-none">
+                <div className="absolute z-10 top-[-30%] right-20 pointer-events-none">
                     <img
                         src="src/assets/Flux_Dev_a_lavish_highly_detailed_3D_render_of_a_luxury_perfum_3-removebg-preview.png"
                         alt="Perfume Bottle"
-                        className="perfume-bottle h-[500px] opacity-60"
+                        className="perfume-bottle h-[600px] opacity-60"
                     />
                 </div>
 
