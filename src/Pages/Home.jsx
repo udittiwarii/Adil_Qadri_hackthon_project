@@ -1,6 +1,6 @@
 const Home = () => {
   return (
-    <div>kai beta</div>
+    <div>Home</div>
   )
 }
 

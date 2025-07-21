@@ -1,14 +1,10 @@
-import Home from "./Components/Home"
-import './App.css'
+import Mainrouting from './Routing/Mainrouting';
 
 const App = () => {
   return (
-    <>
-      <div className="container">
-        <div className="animation-div"></div>
-        <h1 className="beforeafter"> is animation</h1>
-      </div>
-    </>
+    <div>
+      <Mainrouting/>
+    </div>
   )
 }
 
