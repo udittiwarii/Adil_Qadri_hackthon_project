@@ -1,6 +1,10 @@
+import Fluxbottleanimation from "../Components/Fluxbottleanimation"
+
 const Home = () => {
   return (
-    <div >Home</div>
+    <div >
+      <Fluxbottleanimation/>
+    </div>
   )
 }
 

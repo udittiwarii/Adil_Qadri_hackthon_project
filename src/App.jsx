@@ -1,13 +1,15 @@
 import Navbar from './Components/Navbar';
 import Mainrouting from './Routing/Mainrouting';
+import './App.css';
 
 const App = () => {
   return (
-    <div>
-      <Navbar/>
-      <Mainrouting/>
-    </div>
-  )
-}
+    <div className="bg-black text-white min-h-screen font-[Poppins]">
+      <Navbar />
+      <div className="pt-37"><Mainrouting /></div>
 
-export default App
+    </div>
+  );
+};
+
+export default App;
