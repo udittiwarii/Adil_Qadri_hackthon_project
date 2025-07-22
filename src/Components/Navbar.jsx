@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
+import gsap from "gsap";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navRef = useRef([]);
+  const navWrapperRef = useRef(null);
+
+  const isDesktop = () => window.innerWidth >= 768;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +21,26 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  // Animate nav links when navbar becomes visible (on large screens only)
+  useEffect(() => {
+    if (showNavbar && isDesktop()) {
+      gsap.fromTo(
+        navRef.current,
+        {
+          opacity: 0,
+          y: -20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.15,
+          duration: 0.5,
+          ease: "power2.out",
+        }
+      );
+    }
+  }, [showNavbar]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -30,6 +55,7 @@ const Navbar = () => {
 
   return (
     <nav
+      ref={navWrapperRef}
       className={`w-full bg-transparent text-gray-200 backdrop-blur-md shadow-sm font-[Poppins] fixed top-0 left-0 z-50 transition-transform duration-500 ${
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
@@ -46,13 +72,14 @@ const Navbar = () => {
 
         {/* Desktop Nav Links */}
         <div className="hidden md:flex space-x-8 text-lg font-semibold tracking-wide">
-          {navLinks.map(({ to, label }) => (
+          {navLinks.map(({ to, label }, index) => (
             <NavLink
               key={to}
               to={to}
+              ref={(el) => (navRef.current[index] = el)}
               className={({ isActive }) =>
                 `transition duration-300 hover:text-[#FFD700] ${
-                  isActive ? "text-[#FFD700]" : "text-gray-200"
+                  isActive ? "text-gray-800" : "text-gray-200"
                 }`
               }
             >
@@ -80,7 +107,7 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)} // close menu after click
               className={({ isActive }) =>
                 `block transition duration-300 hover:text-[#FFD700] ${
-                  isActive ? "text-[#FFD700]" : "text-gray-200"
+                  isActive ? "text-gray-600" : "text-gray-200"
                 }`
               }
             >

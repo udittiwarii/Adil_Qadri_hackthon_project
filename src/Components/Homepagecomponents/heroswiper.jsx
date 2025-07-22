@@ -82,7 +82,7 @@ const Heroswiper = () => {
               
               <div data-scroll className="bg-zinc-900 z-10 rounded-2xl p-6 h-[400px] flex items-center justify-center shadow-md">
                 <img
-                data-scroll data-scroll-speed="-2"
+                data-scroll 
                   src={src}
                   alt={`Perfume ${index + 1}`}
                   className="h-full object-contain"
