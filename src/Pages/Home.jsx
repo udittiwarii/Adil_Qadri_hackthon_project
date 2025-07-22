@@ -1,5 +1,4 @@
 import Fluxbottleanimation from "../Components/Homepagecomponents/heropageanimation";
-import Heroswiper from "../Components/Homepagecomponents/heroswiper";
 
 const Home = () => {
   return (
@@ -7,7 +6,7 @@ const Home = () => {
 
       
         <Fluxbottleanimation />
-        <Heroswiper />
+        <section className="h-[100vh]"></section>
     </div>
   );
 };

@@ -57,17 +57,16 @@ const Heroswiper = () => {
   }, []);
 
   return (
-    <div ref={scrollRef} data-scroll-container data-scroll data-scroll-speed="-2">
+    <div ref={scrollRef} data-scroll-container data-scroll data-scroll-speed="-1">
       <section
         className="w-full py-12 bg-black text-black"
         data-scroll-section
       >
         <Swiper
-        data-scroll data-scroll-speed="-1"
+        data-scroll 
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={30}
           slidesPerView={1}
-          navigation
           pagination={{ clickable: true }}
           loop={true}
           autoplay={{ delay: 3000 }}
@@ -76,12 +75,14 @@ const Heroswiper = () => {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 }
           }}
-          className="max-w-6xl mx-auto"
+          className="max-w-6xl items-center mx-auto"
         >
           {bottleImages.map((src, index) => (
-            <SwiperSlide key={index}>
-              <div className="bg-zinc-900 z-10 rounded-2xl p-6 h-[400px] flex items-center justify-center shadow-md">
+            <SwiperSlide key={index} data-scroll>
+              
+              <div data-scroll className="bg-zinc-900 z-10 rounded-2xl p-6 h-[400px] flex items-center justify-center shadow-md">
                 <img
+                data-scroll data-scroll-speed="-2"
                   src={src}
                   alt={`Perfume ${index + 1}`}
                   className="h-full object-contain"
