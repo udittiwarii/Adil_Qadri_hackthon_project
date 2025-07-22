@@ -1,13 +1,15 @@
-import Fluxbottleanimation from "../Components/Homepagecomponents/heropageanimation"
-
+import Fluxbottleanimation from "../Components/Homepagecomponents/heropageanimation";
+import Heroswiper from "../Components/Homepagecomponents/heroswiper";
 
 const Home = () => {
   return (
-    <div >
-      <Fluxbottleanimation/>
-      
-    </div>
-  )
-}
+    <div data-scroll-container>
 
-export default Home
+      
+        <Fluxbottleanimation />
+        <Heroswiper />
+    </div>
+  );
+};
+
+export default Home;
