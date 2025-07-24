@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import gsap from "gsap";
-
+import logo from "public/models/ChatGPT_Image_Jul_21__2025__05_32_17_PM-removebg-preview.png"
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -64,7 +64,7 @@ const Navbar = () => {
         {/* Logo */}
         <NavLink to="/" className="flex items-center space-x-4">
           <img
-            src="public/ChatGPT_Image_Jul_21__2025__05_32_17_PM-removebg-preview.png"
+            src={logo}
             alt="Logo"
             className="h-16 w-auto object-contain"
           />

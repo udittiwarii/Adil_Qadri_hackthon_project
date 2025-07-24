@@ -86,7 +86,7 @@ const Fluxbottleanimation = () => {
             });
 
             gsap.to(".perfume-bottle", {
-                rotateY: 60,
+                rotateY: 30,
                 scale: 1.1,
                 scrollTrigger: {
                     trigger: ".perfume-bottle",
@@ -195,7 +195,7 @@ const Fluxbottleanimation = () => {
                 data-scroll-section  
                 className="bg-black mb-0 gap-0 flex-wrap text-white min-h-screen flex items-center justify-center"
             >
-                <span data-scroll data-scroll-speed="-1" >
+                <span  >
                     <Heroswiper />
                 </span>
             </section>

@@ -1,20 +1,38 @@
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
-const CollectionCard = ({ collection }) => {
-  const navigate = useNavigate();
+const CollectionCard = ({ collection, onClick }) => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (collection?.image) {
+      const img = new Image();
+      img.src = collection.image;
+      img.onload = () => setLoaded(true);
+    }
+  }, [collection]);
+
+  if (!collection) return null;
 
   return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.3 }}
-      onClick={() => navigate(`/products/${collection.id}`)}
-      className="cursor-pointer bg-white rounded-xl overflow-hidden shadow-lg p-4 flex flex-col items-center hover:shadow-2xl"
+    <div
+      className="cursor-pointer p-4 rounded-xl bg-white shadow-lg hover:scale-105 transition-all duration-300"
+      onClick={() => onClick(collection)}
     >
-      <img src={collection.image} alt={collection.name} className="h-40 object-contain mb-4" />
-      <h3 className="text-xl font-bold">{collection.name}</h3>
-      <p className="text-gray-600 text-sm text-center">{collection.description}</p>
-    </motion.div>
+      {loaded ? (
+        <img
+          src={collection.image}
+          alt={collection.name}
+          className="w-full h-48 object-cover rounded-lg mb-3"
+        />
+      ) : (
+        <div className="w-full h-48 bg-gray-200 animate-pulse rounded-lg mb-3" />
+      )}
+
+      <h2 className="text-xl font-semibold text-gray-800">
+        {collection.name}
+      </h2>
+      <p className="text-sm text-gray-500">{collection.description}</p>
+    </div>
   );
 };
 
