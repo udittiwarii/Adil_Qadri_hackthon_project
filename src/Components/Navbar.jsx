@@ -48,7 +48,7 @@ const Navbar = () => {
 
   const navLinks = [
     { to: "/", label: "Home" },
-    { to: "/collections", label: "Collections" },
+    { to: "/collection", label: "collection" },
     { to: "/about", label: "About" },
     { to: "/contact", label: "Contact" },
   ];
@@ -64,7 +64,7 @@ const Navbar = () => {
         {/* Logo */}
         <NavLink to="/" className="flex items-center space-x-4">
           <img
-            src="src/assets/ChatGPT_Image_Jul_21__2025__05_32_17_PM-removebg-preview.png"
+            src="public/ChatGPT_Image_Jul_21__2025__05_32_17_PM-removebg-preview.png"
             alt="Logo"
             className="h-16 w-auto object-contain"
           />

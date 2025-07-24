@@ -49,7 +49,9 @@ const Fluxbottleanimation = () => {
             if (text) {
                 const words = text.innerText.split(" ");
                 text.innerHTML = words
-                    .map((word) => `<span class="inline-block opacity-0 word">${word}</span>`)
+                    .map(
+                        (word) => `<span class="inline-block opacity-0 word mx-1">${word}</span>`
+                    )
                     .join(" ");
             }
 
@@ -58,9 +60,9 @@ const Fluxbottleanimation = () => {
             tl.to(".word", {
                 opacity: 1,
                 y: 0,
-                stagger: 0.3,
+                stagger: 0.2,
                 duration: 1.5,
-                ease: "bounce.out",
+                ease: "power3.out",
             });
 
             tl.to(
@@ -72,11 +74,11 @@ const Fluxbottleanimation = () => {
                     duration: 1.8,
                     ease: "power4.out",
                 },
-                "+=0.2"
+                "-=1"
             );
 
             gsap.to(".perfume-bottle", {
-                y: 5,
+                y: 10,
                 repeat: -1,
                 yoyo: true,
                 duration: 4,
@@ -128,38 +130,38 @@ const Fluxbottleanimation = () => {
                 data-scroll-section
                 className="relative min-h-screen bg-black text-white flex items-center justify-center overflow-hidden"
             >
-                {/* Background Blurred Bottle */}
+                {/* Background Bottle Blur */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center">
                     <img
                         src="/src/assets/your-perfume-image.png"
-                        alt="Blurred Bottle"
-                        className="h-[60vw] filter blur-[25px] opacity-60 brightness-125 object-contain"
+                        alt="Blurred Background"
+                        className="h-[60vw] blur-[40px] opacity-60 object-contain brightness-125"
                     />
                 </div>
 
-                {/* Perfume Bottle */}
+                {/* Floating Perfume Bottle */}
                 <div
                     data-scroll
                     data-scroll-speed="-1"
-                    className="absolute z-10 top-[10%] right-[7%] transform -translate-x-1/2"
+                    className="absolute z-10 top-[10%] left-[50%] transform -translate-x-1/2"
                 >
                     <img
-                        src="src/assets/Flux_Dev_a_lavish_highly_detailed_3D_render_of_a_luxury_perfum_3-removebg-preview.png"
+                        src="/src/assets/Flux_Dev_a_lavish_highly_detailed_3D_render_of_a_luxury_perfum_3-removebg-preview.png"
                         alt="Perfume Bottle"
-                        className="perfume-bottle sm:h-[30vw] h-[50vh] opacity-0 rotate-y-90 object-contain"
+                        className="perfume-bottle sm:h-[30vw] h-[50vh] opacity-0 rotate-y-90"
                     />
                 </div>
 
-                {/* Aroma Particles */}
+                {/* Animated Aroma Particles */}
                 <div
                     data-scroll
                     data-scroll-speed="-2"
                     className="absolute inset-0 z-10 pointer-events-none overflow-hidden"
                 >
                     {Array.from({ length: 15 }).map((_, i) => (
-                        <div data-scroll data-scroll-speed="2"
+                        <div
                             key={i}
-                            className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white opacity-30 blur-[2px] absolute aroma"
+                            className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-white opacity-20 blur-[2px] absolute aroma"
                             style={{
                                 top: `${Math.random() * 100}%`,
                                 left: `${Math.random() * 100}%`,
@@ -168,30 +170,38 @@ const Fluxbottleanimation = () => {
                     ))}
                 </div>
 
-                {/* Headline & Button */}
+                {/* Headline & CTA */}
                 <div
                     data-scroll
                     data-scroll-speed="1"
-                    className="relative z-20 flex flex-col items-center justify-center text-center px-4 max-w-[90%]"
+                    className="relative z-20 flex flex-col items-center justify-center text-center px-6"
                 >
-                    <h1 data-scroll data-scroll-speed="2" className="headline text-4xl md:text-6xl font-thin tracking-wide mb-4">
-                        Give your mood an aroma
+
+
+                    <h1 className="headline text-4xl md:text-6xl font-light tracking-wide mb-4">
+                        Give your mood an aroma.
                     </h1>
-                    <p data-scroll data-scroll-speed="1" className="text-xl md:text-2xl font-thin tracking-wider max-w-xl">
-                        Perfumes that turn heads raise eyebrows
+                    <p className="text-xl md:text-2xl font-light tracking-wide mb-6 max-w-xl">
+                        Perfumes that turn heads raise eyebrows.
                     </p>
-                    <button data-scroll data-scroll-speed="1" className="mt-6 px-6 py-3 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition text-base">
+                    <button className="mt-4 px-6 py-3 bg-white text-black font-medium rounded-full hover:bg-transparent hover:border-white hover:text-gray-200 transition">
                         Shop Now
                     </button>
                 </div>
             </section>
 
-            {/* Heroswiper Section (below animation) */}
-            <section data-scroll-section className="min-h-[100vh] bg-black text-white">
-                <span data-scroll data-scroll-speed="-2" ><Heroswiper /></span>
-      </section>
-        </div>
+            {/* Swiper Product Showcase */}
+            <section
+                data-scroll-section  
+                className="bg-black mb-0 gap-0 flex-wrap text-white min-h-screen flex items-center justify-center"
+            >
+                <span data-scroll data-scroll-speed="-1" >
+                    <Heroswiper />
+                </span>
+            </section>
+        </div >
     );
+
 };
 
 export default Fluxbottleanimation;

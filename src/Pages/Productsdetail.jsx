@@ -4,4 +4,4 @@ const productsdetail = () => {
   )
 }
 
-export default productsdetail
+export default productsdetail;
