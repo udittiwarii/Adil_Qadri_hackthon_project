@@ -1,9 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, Suspense, lazy } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
-import Heroswiper from "./heroswiper";
+import PerfumeBottle from "../../assets/Flux_Dev_a_lavish_highly_detailed_3D_render_of_a_luxury_perfum_3-removebg-preview.png";
+
+const Heroswiper = lazy(() => import("./heroswiper"));
 
 const Fluxbottleanimation = () => {
     const scrollRef = useRef(null);
@@ -133,7 +135,7 @@ const Fluxbottleanimation = () => {
                 {/* Background Bottle Blur */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center">
                     <img
-                        src="/src/assets/your-perfume-image.png"
+                        src={PerfumeBottle}
                         alt="Blurred Background"
                         className="h-[60vw] blur-[40px] opacity-60 object-contain brightness-125"
                     />
@@ -146,7 +148,7 @@ const Fluxbottleanimation = () => {
                     className="absolute z-10 top-[10%] left-[50%] transform -translate-x-1/2"
                 >
                     <img
-                        src="/src/assets/Flux_Dev_a_lavish_highly_detailed_3D_render_of_a_luxury_perfum_3-removebg-preview.png"
+                        src={PerfumeBottle}
                         alt="Perfume Bottle"
                         className="perfume-bottle sm:h-[30vw] h-[50vh] opacity-0 rotate-y-90"
                     />
@@ -176,8 +178,6 @@ const Fluxbottleanimation = () => {
                     data-scroll-speed="1"
                     className="relative z-20 flex flex-col items-center justify-center text-center px-6"
                 >
-
-
                     <h1 className="headline text-4xl md:text-6xl font-light tracking-wide mb-4">
                         Give your mood an aroma.
                     </h1>
@@ -192,16 +192,15 @@ const Fluxbottleanimation = () => {
 
             {/* Swiper Product Showcase */}
             <section
-                data-scroll-section  
+                data-scroll-section
                 className="bg-black mb-0 gap-0 flex-wrap text-white min-h-screen flex items-center justify-center"
             >
-                <span  >
+                <Suspense fallback={<div className="text-white text-center py-8">Loading...</div>}>
                     <Heroswiper />
-                </span>
+                </Suspense>
             </section>
-        </div >
+        </div>
     );
-
 };
 
 export default Fluxbottleanimation;
