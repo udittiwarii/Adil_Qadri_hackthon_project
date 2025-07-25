@@ -9,12 +9,12 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 
-const bottleImages = [
-  "src/assets/Attar/Leader12ml.2-removebg-preview.png",
-  "src/assets/Attar/shanayagoldboxandbottlee_1-removebg-preview (1).png",
-  "src/assets/giftpack/6PCS_Combo-removebg-preview.png",
-  "src/assets/giftpack/hero-img-removebg-preview (1).png"
-];
+import Leader from "../../assets/Incense/12.webp";
+import Shanaya from "../../assets/NewArival/WhatsAppImage2025-07-15at11.34.51.webp";
+import Combo from "../../assets/Bakhoor/hajre-aswad-bakhoor-incense-sticks-bukhur-chips-28395324964966.webp";
+import HeroImg from "../../assets/RoyalAttar/EMP06162.webp";
+
+const bottleImages = [Leader, Shanaya, Combo, HeroImg];
 
 const Heroswiper = () => {
   const scrollRef = useRef(null);
@@ -45,7 +45,7 @@ const Heroswiper = () => {
           height: window.innerHeight,
         };
       },
-      pinType: scrollEl.style.transform ? "transform" : "fixed"
+      pinType: scrollEl.style.transform ? "transform" : "fixed",
     });
 
     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
@@ -57,13 +57,15 @@ const Heroswiper = () => {
   }, []);
 
   return (
-    <div ref={scrollRef} data-scroll-container data-scroll data-scroll-speed="-1">
-      <section
-        className="w-full py-12 bg-black text-black"
-        data-scroll-section
-      >
+    <div
+      ref={scrollRef}
+      data-scroll-container
+      data-scroll
+      data-scroll-speed="-1"
+      className="bg-black py-12"
+    >
+      <section className="w-full" data-scroll-section>
         <Swiper
-        data-scroll 
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={30}
           slidesPerView={1}
@@ -73,18 +75,17 @@ const Heroswiper = () => {
           breakpoints={{
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 }
+            1024: { slidesPerView: 3 },
           }}
-          className="max-w-6xl items-center mx-auto"
+          className="max-w-6xl mx-auto"
         >
           {bottleImages.map((src, index) => (
-            <SwiperSlide key={index} data-scroll>
-              
-              <div data-scroll className="bg-zinc-900 z-10 rounded-2xl p-6 h-[400px] flex items-center justify-center shadow-md">
+            <SwiperSlide key={index}>
+              <div className="bg-zinc-900 rounded-2xl p-6 h-[400px] flex items-center justify-center shadow-md">
                 <img
-                data-scroll 
                   src={src}
                   alt={`Perfume ${index + 1}`}
+                  loading="lazy"
                   className="h-full object-contain"
                 />
               </div>

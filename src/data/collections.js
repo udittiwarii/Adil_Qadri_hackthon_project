@@ -1,12 +1,11 @@
 // Image Imports
-import attarImg from '../assets/Attar/aq365bottlerenderwhite-removebg-preview.png';
+import attarImg from '../assets/Attar/Picsart_24-11-24_19-33-09-296.webp';
 import perfumeImg from '../assets/Attar/shanayagoldboxandbottlee_1-removebg-preview (1).png';
 import giftpackImg from '../assets/giftpack/EMP04dsds231-removebg-preview.png';
-import premiumSprayImg from '../assets/giftpack/EMP04dsds231-removebg-preview.png';
 import royalAttarImg from '../assets/RoyalAttar/EMP06093-removebg-preview.png';
 import bakhoorImg from '../assets/Bakhoor/adilqadri-oudh-al-arab-bakhoor-incense-sticks-28385232519270-removebg-preview.png';
 import newArrivalImg from '../assets/NewArival/WhatsAppImage2025-07-15at11.34.51.webp';
-import incenseImg from '../assets/Incense/3.webp';
+import incenseImg from '../assets/Incense/12 (1).webp';
 
 // Collection Data
 export const collections = [
@@ -27,12 +26,6 @@ export const collections = [
     name: 'Gift Pack',
     image: giftpackImg,
     description: 'Perfect for your loved ones',
-  },
-  {
-    id: 'premiumPerfume',
-    name: 'Premium Perfume Spray',
-    image: premiumSprayImg,
-    description: 'Adilqadri Premium Perfume Spray (EDP)',
   },
   {
     id: 'royalAttar',
