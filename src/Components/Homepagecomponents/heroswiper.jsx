@@ -92,14 +92,13 @@ const Heroswiper = () => {
                   darkMode ? "bg-zinc-900" : "bg-gray-100"
                 }`}
               >
-                <NavLink to="/collection">
+                
                 <img
                   src={src}
                   alt={`Perfume ${index + 1}`}
                   loading="lazy"
                   className="h-full object-contain"
                 />
-                </NavLink>
               </div>
             </SwiperSlide>
           ))}
