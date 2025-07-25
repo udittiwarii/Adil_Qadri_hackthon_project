@@ -1,4 +1,3 @@
-// context/AuthContext.jsx
 import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext();
@@ -9,24 +8,15 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser && storedUser.loginTime) {
-      const expireTime = 60 * 60 * 1000; // 1 hour
-      if (Date.now() - storedUser.loginTime < expireTime) {
-        setUser(storedUser);
-        setIsLoggedIn(true);
-      } else {
-        localStorage.removeItem("user");
-      }
+    if (storedUser) {
+      setUser(storedUser);
+      setIsLoggedIn(true);
     }
   }, []);
 
   const login = (userData) => {
-    const userObj = {
-      ...userData,
-      loginTime: Date.now(),
-    };
-    localStorage.setItem("user", JSON.stringify(userObj));
-    setUser(userObj);
+    localStorage.setItem("user", JSON.stringify(userData));
+    setUser(userData);
     setIsLoggedIn(true);
   };
 
@@ -37,7 +27,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{setIsLoggedIn,  user, isLoggedIn, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

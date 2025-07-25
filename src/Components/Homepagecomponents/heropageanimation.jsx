@@ -5,6 +5,7 @@ import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import PerfumeBottle from "../../assets/Flux_Dev_a_lavish_highly_detailed_3D_render_of_a_luxury_perfum_3-removebg-preview.png";
 import { useTheme } from "../../context/ThemeContext"; // ✅ Add correct path
+import { NavLink } from 'react-router-dom';
 
 const Heroswiper = lazy(() => import("./heroswiper"));
 
@@ -132,9 +133,8 @@ const Fluxbottleanimation = () => {
             {/* Hero Section */}
             <section
                 data-scroll-section
-                className={`relative min-h-screen ${
-                    darkMode ? "bg-black text-gray-400" : "bg-white text-gray-800"
-                } flex items-center justify-center overflow-hidden`}
+                className={`relative min-h-screen ${darkMode ? "bg-black text-gray-400" : "bg-white text-gray-800"
+                    } flex items-center justify-center overflow-hidden`}
             >
                 {/* Background Bottle Blur */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center">
@@ -188,31 +188,20 @@ const Fluxbottleanimation = () => {
                     <p className="text-xl md:text-2xl font-light tracking-wide mb-6 max-w-xl">
                         Perfumes that turn heads raise eyebrows.
                     </p>
-                    <button
-                        className={`mt-4 px-6 py-3 rounded-full font-medium transition border ${
-                            darkMode
+                    <NavLink to="/collection">
+                        <button 
+                            className={`mt-4 px-6 py-3 rounded-full font-medium transition border ${darkMode
                                 ? "bg-white text-black hover:bg-transparent hover:text-white hover:border-white"
                                 : "bg-black text-white hover:bg-transparent hover:text-gray-600 hover:border-black"
-                        }`}
-                    >
-                        Shop Now
-                    </button>
+                                }`}
+                        >
+                            Shop Now
+                        </button>
+                    </NavLink>
                 </div>
-            </section>
-
-            {/* Swiper Product Showcase */}
-            <section
-                data-scroll-section
-                className={`${
-                    darkMode ? "bg-black text-gray-400" : "bg-white text-gray-800"
-                } mb-0 gap-0 flex-wrap min-h-screen flex items-center justify-center`}
-            >
-                <Suspense fallback={<div className="text-center py-8">Loading...</div>}>
-                    <Heroswiper />
-                </Suspense>
             </section>
         </div>
     );
-};
 
+};
 export default Fluxbottleanimation;

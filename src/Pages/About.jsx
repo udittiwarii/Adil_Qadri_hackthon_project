@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { useTheme } from "../context/ThemeContext"; // ✅ Make sure path is correct
-
+import imageset from "../assets/Frame_261_4afa268c-2d67-4bd4-bdc8-5bbad84c12f4.webp"
 const About = () => {
   const ref = useRef();
   const { scrollYProgress } = useScroll({ target: ref });
@@ -67,7 +67,7 @@ const About = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          src="https://adilqadri.com/cdn/shop/files/IMG_9955_1_1024x1024.jpg?v=1702967129"
+          src={imageset}
           alt="Adil Qadri"
           className="w-full md:w-1/2 rounded-xl shadow-xl"
         />

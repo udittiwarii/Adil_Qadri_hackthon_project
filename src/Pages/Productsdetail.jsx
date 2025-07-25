@@ -82,9 +82,8 @@ const ProductDetail = () => {
 
   return (
     <div
-      className={`min-h-screen transition-colors duration-500 ${
-        darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'
-      }`}
+      className={`min-h-screen transition-colors duration-500 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'
+        }`}
     >
       {/* Theme toggle */}
       <div className="fixed top-5 right-5 z-50">
@@ -136,7 +135,10 @@ const ProductDetail = () => {
               >
                 🛒 Add to Cart
               </button>
-              <button className="border border-black px-6 py-2 rounded-md hover:bg-black hover:text-white transition-all">
+              <button
+                onClick={() => { alert('NO Bakend!!') }}
+
+                className="border border-black px-6 py-2 rounded-md hover:bg-black hover:text-white transition-all">
                 ⚡ Buy Now
               </button>
             </div>

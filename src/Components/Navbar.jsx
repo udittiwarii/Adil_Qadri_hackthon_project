@@ -97,9 +97,6 @@ const Navbar = () => {
               <NavLink to="/cart" className="hover:text-yellow-400 transition">
                 🛒 Cart
               </NavLink>
-              <NavLink to="/orders" className="hover:text-yellow-400 transition">
-                📦 Orders
-              </NavLink>
             </>
           )}
         </div>
@@ -197,13 +194,7 @@ const Navbar = () => {
               >
                 🛒 Cart
               </NavLink>
-              <NavLink
-                to="/orders"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block hover:text-yellow-400"
-              >
-                📦 Orders
-              </NavLink>
+              
               <button
                 onClick={handleLogout}
                 className="text-left block w-full mt-4 text-red-500 hover:underline"

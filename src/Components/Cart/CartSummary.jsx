@@ -6,7 +6,9 @@ import { motion } from "framer-motion";
 const CartSummary = () => {
   const { cartItems } = useContext(CartContext);
   const total = cartItems.reduce((acc, item) => acc + item.price, 0);
-
+const handler = ()=>{
+    alert('No Bakend!!')
+}
   return (
     <motion.div
       className="bg-white p-6 rounded-2xl shadow-lg"
@@ -22,7 +24,7 @@ const CartSummary = () => {
         <span>Total Price</span>
         <span>₹{total}</span>
       </div>
-      <button className="mt-6 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
+      <button onClick={handler} className="mt-6 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
         Proceed to Checkout
       </button>
     </motion.div>

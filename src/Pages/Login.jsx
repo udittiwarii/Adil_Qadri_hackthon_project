@@ -1,22 +1,25 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTheme } from "../context/ThemeContext"; // make sure path is correct
+import { useTheme } from "../context/ThemeContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [remember, setRemember] = useState(false);
   const navigate = useNavigate();
-  const { darkMode } = useTheme(); // from ThemeContext
+  const { darkMode } = useTheme();
+
+  useEffect(() => {
+    const isLogin = localStorage.getItem("user");
+    if (isLogin) {
+      navigate("/collection");
+    }
+  }, [navigate]);
 
   const handleLogin = () => {
     if (email && password) {
       const user = { email, loginTime: Date.now() };
       localStorage.setItem("user", JSON.stringify(user));
-      if (remember) {
-        localStorage.setItem("remember", "true");
-      }
       navigate("/collection");
     } else {
       alert("Please enter valid credentials.");
@@ -26,7 +29,7 @@ export default function Login() {
   return (
     <div className={`min-h-screen flex items-center justify-center transition-colors duration-300 ${darkMode ? "bg-gradient-to-br from-gray-800 to-black" : "bg-gradient-to-br from-blue-100 to-purple-100"}`}>
       <div className={`flex w-[90%] max-w-5xl shadow-2xl rounded-2xl overflow-hidden transition-colors duration-300 ${darkMode ? "bg-[#111]" : "bg-white"}`}>
-        
+
         {/* Left Side */}
         <motion.div
           className="w-1/2 p-10 flex flex-col justify-center"
@@ -34,7 +37,6 @@ export default function Login() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-
           <h2 className={`text-xl font-semibold mb-1 ${darkMode ? "text-gray-200" : "text-gray-700"}`}>EMAIL</h2>
           <input
             type="email"
@@ -53,11 +55,6 @@ export default function Login() {
             className={`p-2 mb-4 border-b outline-none transition-all duration-300 ${darkMode ? "bg-transparent text-white border-gray-600" : "text-gray-700"}`}
           />
 
-          <div className="flex items-center gap-2 mb-4">
-            <input type="checkbox" onChange={() => setRemember(!remember)} />
-            <label className={`${darkMode ? "text-gray-300" : "text-gray-700"}`}>Remember Me</label>
-          </div>
-
           <div className="flex gap-4">
             <button
               onClick={handleLogin}
@@ -69,9 +66,7 @@ export default function Login() {
 
           <p className={`text-sm mt-6 ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
             Forgotten your login details?{" "}
-            <span className="text-blue-600 cursor-pointer">
-              Get Help Signing In
-            </span>
+            <span className="text-blue-600 cursor-pointer">Get Help Signing In</span>
           </p>
         </motion.div>
 
