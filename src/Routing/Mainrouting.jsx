@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router";
-import Home from './../pages/Home';
+import Home from './../Pages/Home';
 import About from './../pages/About';
-import Contact from './../pages/Contact';
-import Products from './../pages/Products';
 import CollectionPage from "../pages/CollectionPage";
 import Productsdetail from './../pages/Productsdetail';
 import ProtectedRoute from './ProtectedRoute';
 import Profile from './../Pages/Profile';
 import Login from './../Pages/Login';
+import Contact from './../Pages/Contact';
+import Products from './../Pages/Products';
 
 const Mainrouting = () => {
     return (

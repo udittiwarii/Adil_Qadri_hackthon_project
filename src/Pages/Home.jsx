@@ -3,8 +3,6 @@ import Fluxbottleanimation from "../Components/Homepagecomponents/heropageanimat
 const Home = () => {
   return (
     <div data-scroll-container>
-
-      
         <Fluxbottleanimation />
         <section className="h-[100vh]"></section>
     </div>
