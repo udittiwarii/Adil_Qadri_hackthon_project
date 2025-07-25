@@ -15,6 +15,7 @@ import Combo from "../../assets/Bakhoor/hajre-aswad-bakhoor-incense-sticks-bukhu
 import HeroImg from "../../assets/RoyalAttar/EMP06162.webp";
 
 import { useTheme } from "../../context/ThemeContext"; // ✅ Use your custom hook
+import { Navigate } from 'react-router-dom';
 
 const bottleImages = [Leader, Shanaya, Combo, HeroImg];
 
@@ -91,12 +92,14 @@ const Heroswiper = () => {
                   darkMode ? "bg-zinc-900" : "bg-gray-100"
                 }`}
               >
+                <NavLink to="/collection">
                 <img
                   src={src}
                   alt={`Perfume ${index + 1}`}
                   loading="lazy"
                   className="h-full object-contain"
                 />
+                </NavLink>
               </div>
             </SwiperSlide>
           ))}

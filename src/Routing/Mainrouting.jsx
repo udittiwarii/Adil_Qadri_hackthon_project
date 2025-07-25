@@ -24,8 +24,6 @@ const Mainrouting = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/Cart" element={<CartPage />} />
 
-
-            {/* ✅ Add login route */}
             <Route path="/login" element={<Login />} />
 
             <Route
