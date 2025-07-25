@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router";
 import Home from './../Pages/Home';
 import About from './../Pages/About';
-import CollectionPage from "../pages/CollectionPage";
-import Productsdetail from './../pages/Productsdetail';
+import CollectionPage from "./../Pages/CollectionPage";
+import Productsdetail from './../Pages/Productsdetail';
 import ProtectedRoute from './ProtectedRoute';
 import Profile from './../Pages/Profile';
 import Login from './../Pages/Login';
