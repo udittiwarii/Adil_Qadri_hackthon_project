@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import gsap from 'gsap';
-import ProductSwiper from './../Components/productdetail/productswiper';
+import ProductSwiper from './../Components/productdetail/ProductSwiper';
 
 const ProductDetail = () => {
  const { productId } = useParams();
