@@ -14,10 +14,13 @@ import Shanaya from "../../assets/NewArival/WhatsAppImage2025-07-15at11.34.51.we
 import Combo from "../../assets/Bakhoor/hajre-aswad-bakhoor-incense-sticks-bukhur-chips-28395324964966.webp";
 import HeroImg from "../../assets/RoyalAttar/EMP06162.webp";
 
+import { useTheme } from "../../context/ThemeContext"; // ✅ Use your custom hook
+
 const bottleImages = [Leader, Shanaya, Combo, HeroImg];
 
 const Heroswiper = () => {
   const scrollRef = useRef(null);
+  const { darkMode } = useTheme(); // ✅ Grab dark mode from context
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -62,7 +65,9 @@ const Heroswiper = () => {
       data-scroll-container
       data-scroll
       data-scroll-speed="-1"
-      className="bg-black py-12"
+      className={`py-12 transition-colors duration-300 ${
+        darkMode ? "bg-black" : "bg-white"
+      }`}
     >
       <section className="w-full" data-scroll-section>
         <Swiper
@@ -81,7 +86,11 @@ const Heroswiper = () => {
         >
           {bottleImages.map((src, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-zinc-900 rounded-2xl p-6 h-[400px] flex items-center justify-center shadow-md">
+              <div
+                className={`rounded-2xl p-6 h-[400px] flex items-center justify-center shadow-md transition-colors duration-300 ${
+                  darkMode ? "bg-zinc-900" : "bg-gray-100"
+                }`}
+              >
                 <img
                   src={src}
                   alt={`Perfume ${index + 1}`}

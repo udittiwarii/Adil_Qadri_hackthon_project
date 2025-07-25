@@ -8,6 +8,7 @@ import Profile from './../Pages/Profile';
 import Login from './../Pages/Login';
 import Contact from './../Pages/Contact';
 import Products from './../Pages/Products';
+import CartPage from "../Pages/CartPage";
 
 const Mainrouting = () => {
     return (
@@ -18,6 +19,7 @@ const Mainrouting = () => {
             <Route path="/products/:id" element={<Products />} />
             <Route path="/ProductDetail/:productId" element={<Productsdetail />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/Cart" element={<CartPage/>}/>
 
 
             {/* ✅ Add login route */}

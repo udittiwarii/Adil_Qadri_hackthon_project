@@ -1,14 +1,16 @@
-import { useEffect, useRef, Suspense, lazy } from "react";
+import { useEffect, useRef, Suspense, lazy, useContext } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import PerfumeBottle from "../../assets/Flux_Dev_a_lavish_highly_detailed_3D_render_of_a_luxury_perfum_3-removebg-preview.png";
+import { useTheme } from "../../context/ThemeContext"; // ✅ Add correct path
 
 const Heroswiper = lazy(() => import("./heroswiper"));
 
 const Fluxbottleanimation = () => {
     const scrollRef = useRef(null);
+    const { darkMode } = useTheme(); // ✅ ThemeContext usage
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -130,7 +132,9 @@ const Fluxbottleanimation = () => {
             {/* Hero Section */}
             <section
                 data-scroll-section
-                className="relative min-h-screen bg-black text-white flex items-center justify-center overflow-hidden"
+                className={`relative min-h-screen ${
+                    darkMode ? "bg-black text-gray-400" : "bg-white text-gray-800"
+                } flex items-center justify-center overflow-hidden`}
             >
                 {/* Background Bottle Blur */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center">
@@ -154,7 +158,7 @@ const Fluxbottleanimation = () => {
                     />
                 </div>
 
-                {/* Animated Aroma Particles */}
+                {/* Aroma Particles */}
                 <div
                     data-scroll
                     data-scroll-speed="-2"
@@ -184,7 +188,13 @@ const Fluxbottleanimation = () => {
                     <p className="text-xl md:text-2xl font-light tracking-wide mb-6 max-w-xl">
                         Perfumes that turn heads raise eyebrows.
                     </p>
-                    <button className="mt-4 px-6 py-3 bg-white text-black font-medium rounded-full hover:bg-transparent hover:border-white hover:text-gray-200 transition">
+                    <button
+                        className={`mt-4 px-6 py-3 rounded-full font-medium transition border ${
+                            darkMode
+                                ? "bg-white text-black hover:bg-transparent hover:text-white hover:border-white"
+                                : "bg-black text-white hover:bg-transparent hover:text-gray-600 hover:border-black"
+                        }`}
+                    >
                         Shop Now
                     </button>
                 </div>
@@ -193,9 +203,11 @@ const Fluxbottleanimation = () => {
             {/* Swiper Product Showcase */}
             <section
                 data-scroll-section
-                className="bg-black mb-0 gap-0 flex-wrap text-white min-h-screen flex items-center justify-center"
+                className={`${
+                    darkMode ? "bg-black text-gray-400" : "bg-white text-gray-800"
+                } mb-0 gap-0 flex-wrap min-h-screen flex items-center justify-center`}
             >
-                <Suspense fallback={<div className="text-white text-center py-8">Loading...</div>}>
+                <Suspense fallback={<div className="text-center py-8">Loading...</div>}>
                     <Heroswiper />
                 </Suspense>
             </section>

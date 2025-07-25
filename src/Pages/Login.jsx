@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext"; // make sure path is correct
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
   const navigate = useNavigate();
+  const { darkMode } = useTheme(); // from ThemeContext
 
   const handleLogin = () => {
     if (email && password) {
@@ -22,8 +24,9 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-100">
-      <div className="flex w-[90%] max-w-5xl shadow-2xl rounded-2xl overflow-hidden bg-white">
+    <div className={`min-h-screen flex items-center justify-center transition-colors duration-300 ${darkMode ? "bg-gradient-to-br from-gray-800 to-black" : "bg-gradient-to-br from-blue-100 to-purple-100"}`}>
+      <div className={`flex w-[90%] max-w-5xl shadow-2xl rounded-2xl overflow-hidden transition-colors duration-300 ${darkMode ? "bg-[#111]" : "bg-white"}`}>
+        
         {/* Left Side */}
         <motion.div
           className="w-1/2 p-10 flex flex-col justify-center"
@@ -31,29 +34,28 @@ export default function Login() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <img src="/logo.png" alt="logo" className="w-16 mb-4" />
 
-          <h2 className="text-xl font-semibold text-gray-700 mb-1">EMAIL</h2>
+          <h2 className={`text-xl font-semibold mb-1 ${darkMode ? "text-gray-200" : "text-gray-700"}`}>EMAIL</h2>
           <input
             type="email"
             placeholder="your@email.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="p-2 mb-4 text-gray-700 border-b outline-none"
+            className={`p-2 mb-4 border-b outline-none transition-all duration-300 ${darkMode ? "bg-transparent text-white border-gray-600" : "text-gray-700"}`}
           />
 
-          <h2 className="text-xl font-semibold text-gray-700 mb-1">PASSWORD</h2>
+          <h2 className={`text-xl font-semibold mb-1 ${darkMode ? "text-gray-200" : "text-gray-700"}`}>PASSWORD</h2>
           <input
             type="password"
             placeholder="••••••••"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="p-2 mb-4 text-gray-700 border-b outline-none"
+            className={`p-2 mb-4 border-b outline-none transition-all duration-300 ${darkMode ? "bg-transparent text-white border-gray-600" : "text-gray-700"}`}
           />
 
           <div className="flex items-center gap-2 mb-4">
             <input type="checkbox" onChange={() => setRemember(!remember)} />
-            <label>Remember Me</label>
+            <label className={`${darkMode ? "text-gray-300" : "text-gray-700"}`}>Remember Me</label>
           </div>
 
           <div className="flex gap-4">
@@ -63,11 +65,9 @@ export default function Login() {
             >
               LOGIN
             </button>
-
-           
           </div>
 
-          <p className="text-sm text-gray-500 mt-6">
+          <p className={`text-sm mt-6 ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
             Forgotten your login details?{" "}
             <span className="text-blue-600 cursor-pointer">
               Get Help Signing In
@@ -83,7 +83,7 @@ export default function Login() {
           transition={{ duration: 0.8 }}
         >
           <h3 className="text-lg mb-2">WELCOME TO</h3>
-          <h1 className="text-3xl font-bold mb-4">Magnificent Accounting</h1>
+          <h1 className="text-3xl font-bold mb-4">AdilQadri</h1>
           <p className="text-sm">Login to Access Dashboard</p>
         </motion.div>
       </div>
